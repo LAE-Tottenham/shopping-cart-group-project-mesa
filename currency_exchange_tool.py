@@ -1,13 +1,20 @@
-import math # you'll probably need this
+import math
 
 exchange_rates = {
-    'USD': 1.13, #I.E. 1 Pound is 1.13 Dollars
+    'GBP' : 1.0,
+    'USD': 1.13,
     'EUR': 1.15,
+    'CAD' : 1.8,
+    'TRY' : 44.72,
+    'JMD' : 206.88
 }
 
 def check_currency_exists(currency):
-    return
+    for key in exchange_rates:
+        if  currency == key:
+            return True
+    return False
 
-def currency_convert(original_c, new_c, amount):
-    # your code here
-    return
+def currency_convert(new_c, amount):
+    converted = amount * exchange_rates[new_c]
+    return round(converted,2)

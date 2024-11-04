@@ -1,10 +1,12 @@
-from currency_exchange_tool import currency_convert
-from shop_functions import start_shop
+from shop_functions import start_shop, payment, option, select_items, calculate_price
+import pyfiglet
 
-print('Welcome to my shop')
+f = pyfiglet.figlet_format("Welcome to my shop", font='slant')
+print(f)
 
-while True:
-    print('Please select what you would like to buy')
-    items_to_buy = start_shop()
-
-    # blah blah 
+username = option()
+if username:
+    start_shop()
+    selection = select_items()
+    price = calculate_price(selection)
+    payment(price, username, selection)
